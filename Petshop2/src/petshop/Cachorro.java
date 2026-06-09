@@ -1,11 +1,7 @@
 package petshop;
 
-public class Cachorro {
-	private String nome;
+public abstract class Cachorro extends Animal implements ANE {
 	private String raca;
-	private int idade;
-    boolean faminto;
-	Tutor dono;
 	    
 	    Cachorro(String nome, String raca, int idade) {
 	    	this.nome = nome;
@@ -14,21 +10,28 @@ public class Cachorro {
 	    	faminto = true;
 	    }
 	    
-	    public void comer() {
-	  	  System.out.println("O" + nome + " comeu!");
-	  	  faminto = false;
+	    @Override
+	    public void emitirSom() {
+	    	System.out.println("O " + raca + "chamado" + nome + "diz: AU AU!!!");
+	    }
+		
+	    @Override
+		public void exibirDados() {
+			System.out.println("nome: "+nome+"\nraça: "+raca+"\nidade: "+idade +"\n" +nome);
+		  	if (faminto == true) {
+		  		System.out.print(" está com fome!");
+		  	} else {
+		  		System.out.print(" não está com fome!");
+		  	}
+		}
+	    
+	    @Override
+	    public void darBanho() {
+	    	System.out.println("Dando banho no cachorro...");
 	    }
 	    
-	    public void latir() {
-	  	  System.out.println("O " + raca + "chamado" + nome + "diz: AU AU!");
-	    }
-	    
-	    public void exibirDados() {
-	  	  System.out.println("nome: "+nome+"\nraça: "+raca+"\nidade: "+idade +"\n" +nome);
-	  	  if (faminto == true) {
-	  		  System.out.print(" está com fome!");
-	  	  } else {
-	  		  System.out.print(" não está com fome!");
-	  	  }
+	    @Override
+	    public void cortarUnhas() {
+	    	System.out.println("cortando unha do cachorro ...");
 	    }
 }
